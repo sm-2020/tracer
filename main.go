@@ -3,12 +3,11 @@ package main
 import (
 	"fmt"
 	"os"
-
-	"github.com/sm-2020/tracer/src/cli"
+	"github.com/sm-2020/tracer/src/cmd"
 )
 
 func main() {
-	if err := cli.Run(os.Args); err != nil {
+	if err := tracercli.Run(os.Args); err != nil {
 		fmt.Println(err)
 	}
 }
