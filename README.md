@@ -32,4 +32,3 @@ The router may pass on normal traffic, thus allowing your TCP-based http request
 share improve this answer
 
 If a server between you and cnn.com decides not to send a response for your traceroute, it can truncate the remaining responses.
-share improve this answer 
