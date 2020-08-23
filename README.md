@@ -1,6 +1,6 @@
 # tracer
 
-> A simple imprementation of <b>traceroute</b> in golang.
+> A simple implementation of <b>traceroute</b> in golang.
 
 The orginal traceroute works by continously incrementing the TTL variable in the header of a UDP packet. 
 - When TTL = 1, the packet will be dropped after it reaches the first hop, if it was set to 2, the packet will be dropped after it reaches the second hop.
@@ -21,11 +21,11 @@ times out.
 There are two other methods for doing a traceroute, such as the following. But in short we can also send ICMP Echo packets 
 or TCP SYN packets. To summarise, there are three methods all based on an ever increasing TTL to map the "hosts" along the route:
 
-    - UDP to random port (usually 33434 + 100) at host with low TTL
-        - In my experience the default for all command line tools, such as traceroute and tracert
-    - ICMP Echo to host with low TTL
-        - I've encountered this in a couple of graphical tools, also as an option for most command line tools.
-    - TCP SYN, often to port 80, that way the traffic is "kinda" masked as http-traffic is passes by many routers which normally drop ICMP Echoes and UDP-packets to weird ports.
+- UDP to random port (usually 33434 + 100) at host with low TTL
+    - In my experience the default for all command line tools, such as traceroute and tracert
+- ICMP Echo to host with low TTL
+    - I've encountered this in a couple of graphical tools, also as an option for most command line tools.
+- TCP SYN, often to port 80, that way the traffic is "kinda" masked as http-traffic is passes by many routers which normally drop ICMP Echoes and UDP-packets to weird ports.
        -  Neat trick and "new" method, although unorthodox, for finding a route to a host. Unorthodox in that you are in a way missusing Internet-standards. Exists as an option for most command line tools.
 
 The router may pass on normal traffic, thus allowing your TCP-based http request to complete, but it may silently drop UDP to weird ports, half open TCP to weird ports or ICMP pings with low TTL, leaving your local traceroute process waiting and then timing out on that stop.
